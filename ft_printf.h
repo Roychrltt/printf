@@ -6,7 +6,7 @@
 /*   By: xiaxu <xiaxu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 13:24:13 by xiaxu             #+#    #+#             */
-/*   Updated: 2024/05/28 13:24:25 by xiaxu            ###   ########.fr       */
+/*   Updated: 2024/05/29 15:53:52 by xiaxu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <stdint.h>
+
+int	print_di(int nb);
+int	print_p(unsigned long long ptr);
+int	print_u(unsigned int nb)
+int	print_x(unsigned int nb, char format);
 
 #endif

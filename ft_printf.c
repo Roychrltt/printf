@@ -6,7 +6,7 @@
 /*   By: xiaxu <xiaxu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 13:24:29 by xiaxu             #+#    #+#             */
-/*   Updated: 2024/05/29 14:41:09 by xiaxu            ###   ########.fr       */
+/*   Updated: 2024/05/29 15:48:54 by xiaxu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,11 @@ int	ft_format(const char c, va_list args)
 	else if (c == 'p')
 		print_len += print_p(va_arg(args, unsigned long long));
 	else if (c == 'd' || c == 'i')
-		print_len += print_d(va_arg(args, int));
+		print_len += print_di(va_arg(args, int));
 	else if (c == 'u')
 		print_len += print_u(va_arg(args, unsigned int));
-	else if (c == 'x')
-		print_len += print_x(va_arg(args, unsigned int));
-	else if (c == 'X')
-		print_len += print_hex(va_arg(args, unsigned int));
+	else if (c == 'x' || c == 'X')
+		print_len += print_x(va_arg(args, unsigned int), c);
 	else if (c == '%')
 		print_len += print_percent();
 	return (print_len);
