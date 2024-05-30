@@ -6,7 +6,7 @@
 /*   By: xiaxu <xiaxu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 15:41:00 by xiaxu             #+#    #+#             */
-/*   Updated: 2024/05/29 15:51:42 by xiaxu            ###   ########.fr       */
+/*   Updated: 2024/05/30 08:30:05 by xiaxu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ static void	put_hex(unsigned int num, char format)
 	else
 	{
 		if (num <= 9)
-			ft_putchar(num + '0');
+			print_c(num + '0');
 		else
 		{
 			if (format == 'x')
-				ft_putchar(num - 10 + 'a');
+				print_c(num - 10 + 'a');
 			if (format == 'X')
-				ft_putchar(num - 10 + 'A');
+				print_c(num - 10 + 'A');
 		}
 	}
 }

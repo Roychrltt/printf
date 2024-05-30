@@ -6,7 +6,7 @@
 /*   By: xiaxu <xiaxu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 14:56:24 by xiaxu             #+#    #+#             */
-/*   Updated: 2024/05/29 16:01:55 by xiaxu            ###   ########.fr       */
+/*   Updated: 2024/05/30 08:59:50 by xiaxu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int	print_u(unsigned int nb)
 
 	print_len = unsigned_num_len(nb);
 	s = unsigned_itoa(nb);
+	print_s(s);
 	free(s);
 	return (print_len);
 }

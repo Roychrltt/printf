@@ -6,13 +6,13 @@
 /*   By: xiaxu <xiaxu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 13:24:29 by xiaxu             #+#    #+#             */
-/*   Updated: 2024/05/29 15:48:54 by xiaxu            ###   ########.fr       */
+/*   Updated: 2024/05/30 08:53:45 by xiaxu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf.h"
 
-int	print_c(char c)
+int	print_c(int c)
 {
 	write (1, &c, 1);
 	return (1);
@@ -38,7 +38,7 @@ int	print_s(const char *s)
 
 int	print_percent(void)
 {
-	write (1, '%', 1);
+	write (1, "%", 1);
 	return (1);
 }
 
@@ -48,7 +48,7 @@ int	ft_format(const char c, va_list args)
 
 	print_len = 0;
 	if (c == 'c')
-		print_len += print_c(va_arg(args, char));
+		print_len += print_c(va_arg(args, int));
 	else if (c == 's')
 		print_len += print_s(va_arg(args, char *));
 	else if (c == 'p')
@@ -68,7 +68,7 @@ int	ft_printf(const char *str, ...)
 {
 	int		i;
 	int		print_len;
-	va_list	agrs;
+	va_list	args;
 
 	i = 0;
 	print_len = 0;
@@ -87,3 +87,12 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (print_len);
 }
+/*
+int main()
+{
+	int i = ft_printf(" %c %c %c \n", '0', 0, '1');
+	ft_printf("%d\n", i);
+	int j = printf(" %c %c %c \n", '0', 0, '1');
+	printf("%d\n", j);
+}
+*/

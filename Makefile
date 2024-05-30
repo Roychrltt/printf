@@ -1,6 +1,8 @@
 NAME = libftprintf.a
 
-CC = gcc -Wall -Wextra -Werror -I.
+CC = gcc 
+
+CFLAGS = -Wall -Wextra -Werror -I.
 
 SRC = ft_printf.c print_diu.c print_p.c print_x.c
 
@@ -9,21 +11,23 @@ OBJ = ${SRC:.c=.o}
 all: ${NAME}
 
 ${NAME}: ${OBJ}
-	make all -C libft
-	cp libft/libft.a ./libft.a
+	${MAKE} -C libft
+	cp libft/libft.a ./
 	mv libft.a ${NAME}
 	ar rc ${NAME} ${OBJ}
+	ranlib ${NAME}
 
 %.o: %.c ft_printf.h
-	${CC} -c $< -o $@
+	${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-	make clean -C libft
+	${MAKE} -C libft clean
 	rm -rf ${OBJ}
 
 fclean: clean
+	${MAKE} -C libft fclean
 	rm -rf ${NAME}
-	rm -rf libft/libft.a
+	rm -rf libft.a
 
 re: fclean all
 

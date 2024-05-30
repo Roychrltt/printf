@@ -6,7 +6,7 @@
 /*   By: xiaxu <xiaxu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 15:29:02 by xiaxu             #+#    #+#             */
-/*   Updated: 2024/05/29 15:52:34 by xiaxu            ###   ########.fr       */
+/*   Updated: 2024/05/30 08:38:28 by xiaxu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ static void	put_ptr(uintptr_t num)
 	else
 	{
 		if (num <= 9)
-			ft_putchar(num + '0');
+			print_c(num + '0');
 		else
-			ft_putchar(num - 10 + 'a');
+			print_c(num - 10 + 'a');
 	}
 }
 
 int	print_p(unsigned long long ptr)
 {
-	int		print_len;
+	int			print_len;
 	uintptr_t	p;
 
 	p = (uintptr_t)ptr;
