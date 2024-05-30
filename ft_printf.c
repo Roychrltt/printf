@@ -6,7 +6,7 @@
 /*   By: xiaxu <xiaxu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 13:24:29 by xiaxu             #+#    #+#             */
-/*   Updated: 2024/05/30 09:51:58 by xiaxu            ###   ########.fr       */
+/*   Updated: 2024/05/30 13:17:45 by xiaxu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,19 +63,18 @@ int	ft_printf(const char *str, ...)
 	int		i;
 	int		print_len;
 	va_list	args;
+	char	c;
 
 	i = 0;
 	print_len = 0;
 	va_start(args, str);
 	while (str[i])
 	{
-		if (str[i] == '%' && str[i + 1])
+		c = str[i + 1];
+		if (str[i] == '%' && (c == 'c' || c == 's' || c == 'd' || c == 'i'
+				|| c == 'u' || c == 'p' || c == 'x' || c == 'X' || c == '%'))
 		{
-			print_len += ft_format(str[i + 1], args);
-			if (str[i + 1] == 'c' || str[i + 1] == 's' || str[i + 1] == 'd'
-				|| str[i + 1] == 'i' || str[i + 1] == 'u' || str[i + 1] == 'p'
-				|| str[i + 1] == 'x' || str[i + 1] == 'X')
-				va_arg(args, int);
+			print_len += ft_format(c, args);
 			i++;
 		}
 		else
@@ -85,3 +84,23 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (print_len);
 }
+/*
+int main()
+{
+	int	i;
+	int	j;
+
+	void *p=NULL;
+	void *pp=NULL;
+	printf("%lld\n", (unsigned long long)p);
+	i = ft_printf(" %p %p \n", p, pp);
+	printf("%d\n", i);
+	printf("my printf worked\n");
+	j = printf(" %p %p \n", p, pp);
+	printf("%d\n", j);
+
+	int i = printf(0);
+	int j = ft_printf(0);
+	printf("%d\n", i);
+	printf("%d\n", j);
+}*/

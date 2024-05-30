@@ -6,12 +6,12 @@
 /*   By: xiaxu <xiaxu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 14:56:24 by xiaxu             #+#    #+#             */
-/*   Updated: 2024/05/30 08:59:50 by xiaxu            ###   ########.fr       */
+/*   Updated: 2024/05/30 12:30:32 by xiaxu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
+#include "./libft/libft.h"
 
 int	print_di(int nb)
 {
