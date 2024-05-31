@@ -6,7 +6,7 @@
 /*   By: xiaxu <xiaxu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 13:24:29 by xiaxu             #+#    #+#             */
-/*   Updated: 2024/05/30 13:17:45 by xiaxu            ###   ########.fr       */
+/*   Updated: 2024/05/31 09:07:47 by xiaxu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int	ft_printf(const char *str, ...)
 	va_list	args;
 	char	c;
 
+	if (!str)
+		return (-1);
 	i = 0;
 	print_len = 0;
 	va_start(args, str);
