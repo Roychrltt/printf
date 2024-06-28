@@ -6,7 +6,7 @@
 /*   By: xiaxu <xiaxu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 13:24:29 by xiaxu             #+#    #+#             */
-/*   Updated: 2024/05/31 09:07:47 by xiaxu            ###   ########.fr       */
+/*   Updated: 2024/06/27 10:02:56 by xiaxu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,9 @@ int	print_s(const char *s)
 
 	i = 0;
 	if (!s)
-	{
-		write (1, "(null)", 6);
-		return (6);
-	}
+		return (print_s("(null)"));
 	while (s[i])
-	{
-		write (1, &s[i], 1);
-		i++;
-	}
+		write (1, &s[i++], 1);
 	return (i);
 }
 
