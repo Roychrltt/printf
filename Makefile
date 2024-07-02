@@ -4,7 +4,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -I.
 
-SRC = ft_printf.c print_diu.c print_p.c print_x.c
+SRC = ft_printf.c print_diu.c print_x.c
 
 OBJ = ${SRC:.c=.o}
 

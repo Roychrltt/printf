@@ -6,19 +6,19 @@
 /*   By: xiaxu <xiaxu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 13:24:29 by xiaxu             #+#    #+#             */
-/*   Updated: 2024/06/27 10:02:56 by xiaxu            ###   ########.fr       */
+/*   Updated: 2024/07/02 21:59:19 by xiaxu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_c(int c)
+static int	print_c(int c)
 {
 	write (1, &c, 1);
 	return (1);
 }
 
-int	print_s(const char *s)
+static int	print_s(const char *s)
 {
 	int	i;
 
@@ -30,7 +30,7 @@ int	print_s(const char *s)
 	return (i);
 }
 
-int	ft_format(const char c, va_list args)
+static int	ft_format(const char c, va_list args)
 {
 	int	print_len;
 

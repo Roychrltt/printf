@@ -6,12 +6,24 @@
 /*   By: xiaxu <xiaxu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 14:56:24 by xiaxu             #+#    #+#             */
-/*   Updated: 2024/05/30 12:30:32 by xiaxu            ###   ########.fr       */
+/*   Updated: 2024/07/02 23:18:00 by xiaxu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "./libft/libft.h"
+
+static int	print_s(const char *s)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+		return (print_s("(null)"));
+	while (s[i])
+		write (1, &s[i++], 1);
+	return (i);
+}
 
 int	print_di(int nb)
 {
