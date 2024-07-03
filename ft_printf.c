@@ -6,19 +6,19 @@
 /*   By: xiaxu <xiaxu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 13:24:29 by xiaxu             #+#    #+#             */
-/*   Updated: 2024/07/02 21:59:19 by xiaxu            ###   ########.fr       */
+/*   Updated: 2024/07/03 08:54:29 by xiaxu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	print_c(int c)
+int	print_c(int c)
 {
 	write (1, &c, 1);
 	return (1);
 }
 
-static int	print_s(const char *s)
+int	print_s(const char *s)
 {
 	int	i;
 

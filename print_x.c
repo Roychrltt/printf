@@ -6,20 +6,14 @@
 /*   By: xiaxu <xiaxu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 15:41:00 by xiaxu             #+#    #+#             */
-/*   Updated: 2024/07/02 23:19:32 by xiaxu            ###   ########.fr       */
+/*   Updated: 2024/07/03 09:03:50 by xiaxu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "./libft/libft.h"
 
-static int	print_c(int c)
-{
-	write (1, &c, 1);
-	return (1);
-}
-
-static int	get_hex_len(uintptr_t num)
+int	get_num_len(uintptr_t num, uintptr_t base)
 {
 	int	len;
 
@@ -28,18 +22,18 @@ static int	get_hex_len(uintptr_t num)
 		return (1);
 	while (num)
 	{
-		num = num / 16;
+		num = num / base;
 		len++;
 	}
 	return (len);
 }
 
-static void	put_hex(uintptr_t num, char format)
+void	put_num(uintptr_t num, char format, uintptr_t base)
 {
-	if (num >= 16)
+	if (num >= base)
 	{
-		put_hex(num / 16, format);
-		put_hex(num % 16, format);
+		put_num(num / base, format, base);
+		put_num(num % base, format, base);
 	}
 	else
 	{
@@ -60,8 +54,8 @@ int	print_x(unsigned int nb, char format)
 	int	print_len;
 
 	print_len = 0;
-	print_len += get_hex_len(nb);
-	put_hex(nb, format);
+	print_len += get_num_len(nb, 16);
+	put_num(nb, format, 16);
 	return (print_len);
 }
 
@@ -73,7 +67,7 @@ int	print_p(unsigned long long ptr)
 		return (write(1, "(nil)", 5));
 	print_len = 0;
 	print_len += write(1, "0x", 2);
-	print_len += get_hex_len((uintptr_t)ptr);
-	put_hex((uintptr_t)ptr, 'x');
+	print_len += get_num_len((uintptr_t)ptr, 16);
+	put_num((uintptr_t)ptr, 'x', 16);
 	return (print_len);
 }

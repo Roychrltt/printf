@@ -6,24 +6,12 @@
 /*   By: xiaxu <xiaxu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 14:56:24 by xiaxu             #+#    #+#             */
-/*   Updated: 2024/07/02 23:18:00 by xiaxu            ###   ########.fr       */
+/*   Updated: 2024/07/03 09:02:05 by xiaxu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "./libft/libft.h"
-
-static int	print_s(const char *s)
-{
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (print_s("(null)"));
-	while (s[i])
-		write (1, &s[i++], 1);
-	return (i);
-}
 
 int	print_di(int nb)
 {
@@ -36,27 +24,12 @@ int	print_di(int nb)
 	return (print_len);
 }
 
-static int	unsigned_num_len(unsigned int nb)
-{
-	int	len;
-
-	len = 0;
-	if (nb == 0)
-		return (1);
-	while (nb != 0)
-	{
-		nb /= 10;
-		len++;
-	}
-	return (len);
-}
-
 static char	*unsigned_itoa(unsigned int nb)
 {
 	int		len;
 	char	*result;
 
-	len = unsigned_num_len(nb);
+	len = get_num_len(nb, 10);
 	result = malloc(len + 1);
 	if (!result)
 		return (NULL);
@@ -79,7 +52,7 @@ int	print_u(unsigned int nb)
 	int		print_len;
 	char	*s;
 
-	print_len = unsigned_num_len(nb);
+	print_len = get_num_len(nb, 10);
 	s = unsigned_itoa(nb);
 	print_s(s);
 	free(s);
