@@ -6,23 +6,12 @@
 /*   By: xiaxu <xiaxu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 14:56:24 by xiaxu             #+#    #+#             */
-/*   Updated: 2024/07/03 09:02:05 by xiaxu            ###   ########.fr       */
+/*   Updated: 2024/07/04 15:45:10 by xiaxu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "./libft/libft.h"
-
-int	print_di(int nb)
-{
-	int		print_len;
-	char	*s;
-
-	s = ft_itoa(nb);
-	print_len = print_s(s);
-	free(s);
-	return (print_len);
-}
 
 static char	*unsigned_itoa(unsigned int nb)
 {
@@ -52,9 +41,19 @@ int	print_u(unsigned int nb)
 	int		print_len;
 	char	*s;
 
-	print_len = get_num_len(nb, 10);
 	s = unsigned_itoa(nb);
-	print_s(s);
+	print_len = print_s(s);
+	free(s);
+	return (print_len);
+}
+
+int	print_di(int nb)
+{
+	int		print_len;
+	char	*s;
+
+	s = ft_itoa(nb);
+	print_len = print_s(s);
 	free(s);
 	return (print_len);
 }
